@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 
 import java.sql.SQLException;
 
@@ -34,8 +36,9 @@ public class SpringOfTobyApplication {
 //        System.out.println(user2.getPassword());
 //        System.out.println(user2.getId()+"조회 성공");
 
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CountingDaoFactory.class);
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CountingDaoFactory.class);
 
+        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext");
         UserDao dao = context.getBean("userDao",UserDao.class);
 
         CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
