@@ -5,6 +5,7 @@ import com.toby.springoftoby.user.dao.CountingDaoFactory;
 import com.toby.springoftoby.user.dao.DaoFactory;
 import com.toby.springoftoby.user.dao.UserDao;
 import com.toby.springoftoby.user.domain.User;
+import org.junit.runner.JUnitCore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,7 +18,10 @@ import java.sql.SQLException;
 @SpringBootApplication
 public class SpringOfTobyApplication {
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args){
+
+        JUnitCore.main("com.toby.springoftoby.user.dao.UserDaoTest");
+
 //        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
 //
 //        UserDao dao = context.getBean("userDao", UserDao.class);
@@ -38,11 +42,11 @@ public class SpringOfTobyApplication {
 
 //        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CountingDaoFactory.class);
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext");
-        UserDao dao = context.getBean("userDao",UserDao.class);
-
-        CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
-        System.out.println("Connection counter : "+ccm.getCounter());
+//        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext");
+//        UserDao dao = context.getBean("userDao",UserDao.class);
+//
+//        CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
+//        System.out.println("Connection counter : "+ccm.getCounter());
     }
 
 }

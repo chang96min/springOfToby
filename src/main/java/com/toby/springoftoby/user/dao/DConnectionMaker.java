@@ -8,6 +8,6 @@ public class DConnectionMaker implements ConnectionMaker {
     public Connection makeConnection() throws ClassNotFoundException, SQLException {
         Class.forName("org.postgresql.Driver");
         return DriverManager.getConnection(
-                "jdbc:postgresql://localhost/PGPractice", "postgres", "1234");
+                "jdbc:postgresql://localhost/postgres", "postgres", "1234");
     }
 }
